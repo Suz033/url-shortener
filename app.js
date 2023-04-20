@@ -12,6 +12,9 @@ app.set('view engine', 'hbs')
 const routes = require('./routes')
 require('./config/mongoose')
 
+// files
+const generateUrl = require('./models/generate_url')
+
 
 //// routes ////
 // index

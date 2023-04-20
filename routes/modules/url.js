@@ -6,8 +6,8 @@ const router = express.Router()
 
 
 // routes
-router.post('/', (req, res) => {
-  res.render('copy')
+router.get('/', (req, res) => {
+  res.render('url')
 })
 
 // exports
