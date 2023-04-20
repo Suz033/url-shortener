@@ -1,24 +1,12 @@
-<div class="card text-center mt-5">
+<form action="/url/copy" method="GET">
+  <div class="input-group mb-3 mt-3">
 
-  <div class="card-body">
+    <input type="text" class="form-control" placeholder="Input URL here" name="name">
 
-    <h2 class="card-title m-3" style="font-weight: bold;">Url Shortener</h2>
+    <a href="/" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate-left"></i></a>
 
-    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="logo" width="20%" class="m-3">
-
-    <form action="/url/copy" method="GET">
-      <div class="input-group mb-3 mt-3">
-
-        <input type="text" class="form-control" placeholder="Input URL here" name="name">
-
-        <a href="/" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-rotate-left"></i></a>
-
-        {{!-- <a href="/url/copy" class="btn btn-outline-primary">Create</a> --}}
-        <button type="submit" class="btn btn-outline-secondary">Shorten</button>
-        
-      </div>
-    </form>
+    {{!-- <a href="/url/copy" class="btn btn-outline-primary">Create</a> --}}
+    <button type="submit" class="btn btn-outline-secondary">Shorten</button>
 
   </div>
-
-</div>
+</form>
