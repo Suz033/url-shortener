@@ -1,11 +1,17 @@
-// function
-function generateGarbledCode(originalUrl) {
-  const garbledCodeLength = 5
+// files
+const UrlModel = require('./url')
 
+
+// function
+function generateGarbledCode(length = 5) {
+  const garbledCodeLength = length
+
+  // garbled code type
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
+  const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const numbers = '0123456789'
 
-  let collection = lowerCaseLetters.concat(numbers)
+  const collection = lowerCaseLetters.concat(upperCaseLetters).concat(numbers)
 
   let garbledCode = ''
 
@@ -17,11 +23,19 @@ function generateGarbledCode(originalUrl) {
     }
   }
 
-  console.log(garbledCode)
+  return garbledCode
 
 }
 
-generateGarbledCode()
+function generateShortenedUrl(originalUrl) {
+  const hostUrl = 'http://localhost:3000/'
+  const shortenedUrl = hostUrl + generateGarbledCode()
+  console.log(shortenedUrl)
+}
+
+
+console.log(generateGarbledCode())
+
 
 // export function
 module.exports = generateGarbledCode
