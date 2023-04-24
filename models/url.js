@@ -6,7 +6,8 @@ const Schema = mongoose.Schema
 // create schema
 const UrlSchema = new Schema({
   original: {
-    type: String
+    type: String,
+    required: true
   },
   short: {
     type: String,
