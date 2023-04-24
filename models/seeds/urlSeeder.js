@@ -1,9 +1,14 @@
 // files
-const UrlModel = require('../url')
 const db = require('../../config/mongoose')
+const UrlModel = require('../url')
+const urlData = require('./url.json').results
 
 // models
 db.once('open', () => {
-  UrlModel.create({ 'url.original': 'https://www.google.com.tw/', 'url.short': 'http://localhost:3000/DpB6S' })
-  console.log('Seed script complete')
+  UrlModel.create(urlData)
+    .then(() => {
+        console.log('Seed script complete')
+        db.close()
+      })
+    .catch(err => console.error(err))
 })

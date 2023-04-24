@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "short": "http://localhost:3000/uNzH4",
+      "original": "https://www.google.com/"
+    },
+    {
+      "id": 2,
+      "short": "http://localhost:3000/c1Lqn",
+      "original": "https://chat.openai.com/"
+    },
+    {
+      "id": 3,
+      "short": "http://localhost:3000/tD3HC",
+      "original": "https://www.facebook.com/"
+    },
+    {
+      "id": 4,
+      "short": "http://localhost:3000/DpB6S",
+      "original": "https://www.momoshop.com.tw/"
+    },
+    {
+      "id": 5,
+      "short": "http://localhost:3000/iJ6RN",
+      "original": "https://www.youtube.com/"
+    }
+  ]
+}
