@@ -1,16 +1,18 @@
-// modules
+//// modules ////
 const express = require('express')
 const router = express.Router()
 
-// files
+//// files ////
 const UrlModel = require('../../models/url')
 const generateUrl = require('../../models/generate_url')
 
-// routes
+//// routes ////
+// index page
 router.get('/', (req, res) => {
   res.render('index')
 })
 
+// shorten url
 router.post('/', async (req, res) => {
   const originalUrl = req.body.url
   const shortenedUrl = await generateUrl()
@@ -32,5 +34,21 @@ router.post('/', async (req, res) => {
     .catch(err => console.error(err))
 })
 
-// exports
+// redirect to original url
+router.get('/:short', (req, res) => {
+  const shortenedUrl = 'http://localhost:3000/' + req.params.short
+  UrlModel.findOne({ short: shortenedUrl })
+    .then(url => {
+      if (!url) {
+        res.render('index')
+      } else {
+        console.log(url.original)
+        res.redirect(url.original)
+      }
+    })
+    .catch(err => console.error(err))
+})
+
+
+//// exports ////
 module.exports = router
