@@ -1,4 +1,5 @@
 // files
+require('../config/mongoose')
 const UrlModel = require('./url')
 
 
@@ -27,15 +28,20 @@ function generateGarbledCode(length = 5) {
 
 }
 
-function generateShortenedUrl(originalUrl) {
-  const hostUrl = 'http://localhost:3000/'
-  const shortenedUrl = hostUrl + generateGarbledCode()
-  console.log(shortenedUrl)
+async function generateShortenedUrl() {
+  const hostUrl = process.env.HOST_URL || 'http://localhost:3000/'
+  let shortenedUrl = hostUrl + generateGarbledCode()
+
+  // unrepeated shortened url
+  let url = await UrlModel.findOne({ shortenedUrl })
+  while (url) {
+    shortenedUrl = hostUrl + generateGarbledCode()
+    url = await UrlModel.findOne({ shortenedUrl })
+  }
+
+  return shortenedUrl
 }
 
 
-console.log(generateGarbledCode())
-
-
 // export function
-module.exports = generateGarbledCode
+module.exports = generateShortenedUrl

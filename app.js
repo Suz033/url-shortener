@@ -5,20 +5,21 @@ const app = express()
 
 // express-handlebars
 const exphbs = require('express-handlebars')
-app.engine('hbs', exphbs({ defaultLayout:'main', extname: 'hbs'}))
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
 app.set('view engine', 'hbs')
+app.use(express.urlencoded({ extended: true }))
 
 // db
 const routes = require('./routes')
 require('./config/mongoose')
 
 // files
-const generateUrl = require('./models/generate_url')
+const generateUrl = require('./models/generate_url').default
 
 
 //// routes ////
 // index
-app.use('/', routes)
+app.use(routes)
 
 // listeners
 const PORT = process.env.PORT || 3000
