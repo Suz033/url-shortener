@@ -2,9 +2,11 @@
 const express = require('express')
 const router = express.Router()
 
+
 //// files ////
 const UrlModel = require('../../models/url')
 const generateUrl = require('../../models/generate_url')
+
 
 //// routes ////
 // index page
@@ -13,9 +15,11 @@ router.get('/', (req, res) => {
 })
 
 // shorten url
+const HOST_URL = process.env.HOST_URL || 'http://localhost:3000/'
+
 router.post('/', async (req, res) => {
   const originalUrl = req.body.url
-  const shortenedUrl = await generateUrl()
+  const shortenedUrl = await generateUrl(HOST_URL)
 
   UrlModel.findOne({ original: originalUrl })
     .then(url => {
@@ -36,7 +40,7 @@ router.post('/', async (req, res) => {
 
 // redirect to original url
 router.get('/:short', (req, res) => {
-  const shortenedUrl = 'http://localhost:3000/' + req.params.short
+  const shortenedUrl = HOST_URL + req.params.short
   UrlModel.findOne({ short: shortenedUrl })
     .then(url => {
       if (!url) {

@@ -28,9 +28,8 @@ function generateGarbledCode(length = 5) {
 
 }
 
-async function generateShortenedUrl() {
-  const hostUrl = process.env.HOST_URL || 'http://localhost:3000/'
-  let shortenedUrl = hostUrl + generateGarbledCode()
+async function generateShortenedUrl(HOST_URL) {
+  let shortenedUrl = HOST_URL + generateGarbledCode()
 
   // unrepeated shortened url
   let url = await UrlModel.findOne({ shortenedUrl })
