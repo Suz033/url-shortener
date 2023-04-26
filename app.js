@@ -14,7 +14,7 @@ const routes = require('./routes')
 require('./config/mongoose')
 
 // files
-const generateUrl = require('./models/generate_url').default
+app.use(express.static('public'))
 
 
 //// routes ////
