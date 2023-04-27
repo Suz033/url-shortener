@@ -44,9 +44,8 @@ router.get('/:short', (req, res) => {
   UrlModel.findOne({ short: shortenedUrl })
     .then(url => {
       if (!url) {
-        res.render('index')
+        res.render('index', { errorUrl: shortenedUrl })
       } else {
-        console.log(url.original)
         res.redirect(url.original)
       }
     })
