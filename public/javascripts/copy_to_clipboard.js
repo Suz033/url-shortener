@@ -1,8 +1,4 @@
-const copyBtn = document.querySelector('#copy-btn')
-
-copyBtn.addEventListener('click', function () {
-  const copyTarget = copyBtn.value
-
+function copyToClipboard(copyTarget) {
   navigator.clipboard.writeText(copyTarget)
     .then(() => {
       console.log('Short URL is copied to clipboard')
@@ -10,4 +6,4 @@ copyBtn.addEventListener('click', function () {
     .catch(err => {
       console.error('Could not copy URL: ', err)
     })
-})
+}
