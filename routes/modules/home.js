@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 })
 
 // shorten url
-const HOST_URL = process.env.HOST_URL || 'http://localhost:3000/'
+const PORT = process.env.PORT || 3000
+const HOST_URL = process.env.HOST_URL || `http://localhost:${PORT}`
 
 router.post('/', async (req, res) => {
   const originalUrl = req.body.url
