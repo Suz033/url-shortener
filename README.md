@@ -2,8 +2,6 @@
 
 快速將長網址縮短的魔法！
 
-![homepage](./public/image/homepage.png)
-
 ![result](./public/image/result.png)
 
 輸入想要的網址即可一鍵縮短，詳細功能：
@@ -11,16 +9,19 @@
 2. 縮短後可點擊按鈕複製縮網址
 3. 輸入相同的網址會產生相同的縮網址
 
-### Prerequisites
+
+
+## Prerequisites
 
 * Node.js
 * Express @4.18.2
 * Express-handlebars @4.0.2
 * mongoose @7.0.4
 * dotenv @16.0.3
-* handlebars-helpers @0.10.0
 
-### Installing
+
+
+## Installing
 
 1. 安裝套件
 
@@ -42,6 +43,8 @@ npm run dev
 ```
 npm run seed
 ```
+
+
 
 ## Authors
 
