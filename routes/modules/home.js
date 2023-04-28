@@ -6,6 +6,7 @@ const router = express.Router()
 //// files ////
 const UrlModel = require('../../models/url')
 const generateUrl = require('../../models/generate_url')
+require('dotenv').config()
 
 
 //// routes ////
